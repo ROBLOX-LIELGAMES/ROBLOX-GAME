@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>איך לבנות משחק ראשון ברובלוקס - המדריך המלא | LIEL GAMES</title>
+    
+    <!-- Google AdSense - החלף את ה-client במזהה האדסנס שלך -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+    <style>
+        :root {
+            --primary-color: #00ffcc;
+            --secondary-color: #ff007f;
+            --bg-dark: #0b0f19;
+            --card-bg: rgba(18, 24, 38, 0.85);
+            --text-color: #ffffff;
+            --text-muted: #a0aec0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-color);
+            line-height: 1.8;
+            /* רקע מגניב בסגנון גיימינג עם טקסטורה ואפקט ניאון */
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 0, 127, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 255, 204, 0.15) 0%, transparent 40%),
+                linear-gradient(to bottom, #0b0f19, #1a1f2c);
+            background-attachment: fixed;
+            padding-bottom: 50px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px 20px;
+            border-bottom: 2px solid rgba(0, 255, 204, 0.2);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            text-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        /* כפתור יוטיוב ענק ובולט */
+        .youtube-banner {
+            text-align: center;
+            margin: 40px 20px;
+        }
+
+        .btn-youtube {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            color: white;
+            font-size: 1.8rem;
+            font-weight: bold;
+            padding: 20px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+            transition: all 0.3s ease;
+            border: 2px solid #ff6666;
+        }
+
+        .btn-youtube:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 35px rgba(255, 0, 0, 0.9);
+            background: linear-gradient(135deg, #ff1a1a, #e60000);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-right: 5px solid var(--secondary-color);
+            padding-right: 15px;
+        }
+
+        h3 {
+            color: #ffcc00;
+            font-size: 1.4rem;
+            margin: 20px 0 10px 0;
+        }
+
+        p, li {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            margin-right: 25px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        strong {
+            color: var(--text-color);
+        }
+
+        .step-number {
+            background-color: var(--secondary-color);
+            color: white;
+            width: 35px;
+            height: 35px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        /* אזור פרסומות AdSense */
+        .adsense-box {
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px dashed rgba(255, 255, 255, 0.15);
+            text-align: center;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+            color: #666;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+        }
+
+        @media(max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            .btn-youtube { font-size: 1.4rem; padding: 15px 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🎮 איך לבנות משחק ראשון ברובלוקס</h1>
+        <p>המדריך המקיף והמקצועי ביותר מאת LIEL GAMES</p>
+    </header>
+
+    <!-- קישור ענק ליוטיוב -->
+    <div class="youtube-banner">
+        <a href="https://youtube.com/@best_gamer_ever?si=vGABiQtNrhjw8AOt" target="_blank" class="btn-youtube">
+            🔴 היכנסו עכשיו לערוץ היוטיוב שלי: LIEL GAMES
+        </a>
+    </div>
+
+    <!-- באנר פרסומת AdSense עליון -->
+    <div class="container">
+        <div class="adsense-box">
+            <!-- כאן יודבק קוד ה-AdSense שלך -->
+            <p>Google AdSense Banner</p>
+            <script>
+                 // (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="card">
+            <h2>מבוא: למה כדאי להתחיל ליצור ברובלוקס?</h2>
+            <p>ברובלוקס (Roblox) הוא הרבה מעבר למשחק – זו פלטפורמה ענקית שמאפשרת לכל אחד להפוך ממזמין משחקים ליוצר משחקים אמיתי. תוכנת <strong>Roblox Studio</strong> מעניקה לכם כלים עוצמתיים לתכנות בלואה (Lua), עיצוב תלת-ממדי ויצירת חוויות שמיליונים יראו.</p>
+        </div>
+
+        <div class="card">
+            <h2>שלב 1: התקנת Roblox Studio והכרת סביבת העבודה</h2>
+            <p><span class="step-number">1</span><strong>הורדת התוכנה:</strong> היכנסו לאתר הרשמי של רובלוקס, התחברו לחשבון שלכם ולחצו על יצירה (Create) כדי להוריד ולהתקין את Roblox Studio במחשב.</p>
+            <p><span class="step-number">2</span><strong>בחירת תבנית (Template):</strong> כשתפתחו את התוכנה, תראו מבחר תבניות מוכנות (כמו Baseplate, Classic Spawn, או מפות מוכנות מראש למרוצים ופעולה). למתחילים מומלץ להתחיל עם <strong>Baseplate</strong> כדי ליצור הכל מאפס.</p>
+            <p><span class="step-number">3</span><strong>ניווט במצלמה:</strong> השתמשו במקשים <code>W, A, S, D</code> יחד עם לחיצה על לחצן ימני בעכבר כדי לטייל במרחב התלת-ממדי.</p>
+        </div>
+
+        <!-- באנר פרסומת AdSense אמצעי -->
+        <div class="adsense-box">
+            <p>Google AdSense In-Article</p>
+        </div>
+
+        <div class="card">
+            <h2>שלב 2: בניית שלבים, מכניקות עיצוב ואובייקטים</h2>
+            <p><span class="step-number">1</span><strong>הוספת אובייקטים (Parts):</strong> בסרגל הכלים העליון, לחצו על כפתור <strong>Part</strong> (תיבה, עיגול, טריז או גליל). האובייקט יופיע במרכז המסך.</p>
+            <p><span class="step-number">2</span><strong>שימוש בכלי העריכה:</strong></p>
+            <ul>
+                <li><strong>Move:</strong> הזזת אובייקטים במרחב לפי צירים (X, Y, Z).</li>
+                <li><strong>Scale:</strong> שינוי גודל ומתיחת האובייקט כדי ליצור קירות, רצפות או מכשולים.</li>
+                <li><strong>Rotate:</strong> סיבוב אובייקטים לכל זווית שתבחרו.</li>
+            </ul>
+            <p><span class="step-number">3</span><strong>עיצוב וחומרים (Properties):</strong> פתחו את חלון ה-Properties (מתפריט View), ושם תוכלו לשנות צבעים (BrickColor / Color), חומרים (Material כמו זכוכית, עץ, לבנים או אבן) וכן להגדיר אם האובייקט יהיה מקובע במקום בעזרת כפתור ה-<strong>Anchored</strong> (חובה לסמן אותם כ-Anchored כדי שלא יפלו כשהמשחק מתחיל!).</p>
+        </div>
+
+        <div class="card">
+            <h2>שלב 3: הוספת קוד ותכנות בסיסי (Lua)</h2>
+            <p>כדי שהמשחק יהיה מעניין, צריך להוסיף לו חוקים ותזוזה בעזרת סקריפטים:</p>
+            <ol>
+                <li>בחלונת ה-Explorer, עמדו עם העכבר על האובייקט שלכם, לחצו על כפתור הפלוס <code>+</code> וחפשו <strong>Script</strong>.</li>
+                <li>כתבו קוד פשוט לדוגמה שישנה את צבע הבלק או יזיז אותו, למשל:
+                    <pre style="background: #000; padding: 15px; border-radius: 5px; color: #00ffcc; margin-top: 10px; overflow-x: auto;">
+while true do
+    script.Parent.BrickColor = BrickColor.random()
+    task.wait(1)
+end
+                    </pre>
+                </li>
+            </ol>
+        </div>
+
+        <div class="card">
+            <h2>שלב 4: בדיקת המשחק (Playtesting)</h2>
+            <p>לפני שמעלים את המשחק לעולם, חובה לבדוק שהכל עובד חלק ושאין באגים:</p>
+            <ul>
+                <li>לחצו על כפתור ה-<strong>Play</strong> בסרגל הכלים הראשי כדי להיכנס למשחק בתור השחקן.</li>
+                <li>בדקו האם הקפיצות תקינות, האם המכשולים פועלים, והאם הסקריפטים רצים כמו שצריך.</li>
+                <li>לחצו על <strong>Stop</strong> כדי לחזור למצב עריכה ולתקן בעיות במידת הצורך.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>שלב 5 (מפורט): איך לפרסם ולהעלות את המשחק לציבור ברובלוקס</h2>
+            <p>כשהמשחק מוכן ואתם רוצים שכולם יוכלו לשחק בו (וגם לחברים שלכם מיוטיוב), עקבו אחר השלבים הבאים:</p>
+            <ol>
+                <li><strong>שמירה לענן (Publish to Roblox):</strong> בתפריט העליון משמאל, לחצו על <strong>File</strong> ואז בחרו ב-<strong>Publish to Roblox...</strong></li>
+                <li><strong>יצירת משחק חדש:</strong> אם זה משחק חדש לגמרי, לחצו על <code>Create new game</code>. מלאו את הפרטים:
+                    <ul>
+                        <li><strong>Name:</strong> שם קליט למשחק שלכם (לדוגמה: <em>Liel Obby Adventure</em>).</li>
+                        <li><strong>Description:</strong> תיאור קצר שמסביר על המשחק ומה עושים בו.</li>
+                        <li><strong>Genre:</strong> בחירת ז'אנר מתאים (לדוגמה: Adventure או Platformer).</li>
+                        <li><strong>Devices:</strong> בחרו אילו מכשירים תומכים במשחק (מחשב, טאבלט, טלפון נייד או קונסולות).</li>
+                    </ul>
+                </li>
+                <li><strong>שמירה סופית:</strong> לחצו על <strong>Create</strong> ואישור. המשחק נשמר בענן של רובלוקס!</li>
+                <li><strong>הפיכת המשחק לציבורי (Public):</strong> כברירת מחדל, משחקים חדשים מוגדרים כ-Private (פרטיים) ורק אתם יכולים להיכנס אליהם. כדי שכולם יראו אותו:
+                    <ul>
+                        <li>לכו שוב ל-<strong>File</strong> ובחרו ב-<strong>Game Settings</strong> (או היכנסו ללוח הבקרה באתר רובלוקס תחת Creator Dashboard).</li>
+                        <li>עברו ללשונית <strong>Basic Information</strong>.</li>
+                        <li>שנו את ההגדרה מ-<strong>Private</strong> ל-<strong>Public</strong>.</li>
+                        <li>לחצו על <strong>Save</strong>.</li>
+                    </ul>
+                </li>
+                <li><strong>שיתוף הקישור:</strong> כעת היכנסו לעמוד המשחק שלכם באתר רובלוקס, העתיקו את הקישור (URL) של הדפדפן, ושתפו אותו עם הצופים שלכם בערוץ היוטיוב *LIEL GAMES* כדי שכולם יוכלו לבוא לשחק יחד איתכם!</li>
+            </ol>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>כל הזכויות שמורות &copy; 2026 | מנוהל על ידי <a href="https://youtube.com/@best_gamer_ever?si=vGABiQtNrhjw8AOt" target="_blank" style="color: var(--primary-color); text-decoration: none;">LIEL GAMES</a></p>
+    </footer>
+
+</body>
+</html>
